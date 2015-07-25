@@ -55,7 +55,6 @@ task :check_homework do
         path = directories[0]+"/library/#{file_name}.rb"
         require path
       end
-          binding.pry if counter.to_i==3
       @leo_tolstoy = Library::Author.new(1828, 1910, 'Leo Tolstoy')
       @oscar_wilde = Library::Author.new(1854, 1900, 'Oscar Wilde')
       @agatha_christie = Library::Author.new(1890, 1976, 'Agatha Christie')
