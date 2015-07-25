@@ -1,6 +1,5 @@
 require 'active_support/all'
 require 'pry'
-require 'pry-byebug'
 
 module Library
 
