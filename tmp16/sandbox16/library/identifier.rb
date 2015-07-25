@@ -8,7 +8,7 @@ module Identifier
   end
 
   module ClassMethods
-    def identifiers_quality
+    def identifiers_quantfy
       self.class_variable_get :@@group_identifier
     end
 
