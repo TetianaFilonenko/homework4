@@ -123,8 +123,6 @@ task :check_homework do
         puts e.message
         puts e.backtrace.inspect
       end
-      [:Author, :Book, :PublishedBook, :Reader, :Manager, :Commentable, :Identifier].each{ |s| Library.send(:remove_const, s) if Library.constants.include?(s)  }
-      Object.send(:remove_const, :Library)
 
       total = [first, second, third].sum
       student_grade = [counter, total, first, second, third]
@@ -132,6 +130,13 @@ task :check_homework do
     rescue Exception => e  
       puts e.message
       puts e.backtrace.inspect  
+    end
+
+    if defined? Library
+      [:Author, :Commentable,
+         :Identifier, :Manager, :PublishedBook,
+         :Reader, :ReaderWithBook, :Book].each{ |s| Library.send(:remove_const, s) if Library.constants.include?(s) }
+        Object.send(:remove_const, :Library)
     end
   end
   CSV.open("hw_4_grades.csv", "a+") do |csv|
