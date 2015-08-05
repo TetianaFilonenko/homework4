@@ -46,6 +46,7 @@ task :check_homework do
     begin
       counter = dir.split('tmp')[1]
       puts '=' * 80
+      puts dir
       path = "./#{dir}/sandbox#{counter}/library/#{file_name}.rb"
       if File.exist?(path)
         require path
